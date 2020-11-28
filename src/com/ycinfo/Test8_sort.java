@@ -4,7 +4,7 @@ package com.ycinfo;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Test8 {
+public class Test8_sort {
     public static void main(String[] args) {
         //数组声明
         int [] arr=new int[10];   //    10 个元素  int    -> 0
@@ -132,7 +132,7 @@ public class Test8 {
      * @return   一个排好序的新数组
      */
     static int[]  bubbleSort(  int[] oldArray ){
-        int [] arr= Arrays.copyOf( oldArray, oldArray.length  );
+        int [] arr= Arrays.copyOf( oldArray, oldArray.length  );  //数组复制
         //外循环控制   arr.length-1
         for(  int i=1;i<arr.length;i++){
             boolean flag=true;   //标量, 标志内循环是否完成过交换,

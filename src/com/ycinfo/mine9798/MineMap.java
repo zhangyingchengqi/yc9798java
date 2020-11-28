@@ -3,7 +3,7 @@ package com.ycinfo.mine9798;
 import java.util.Random;
 
 /**
- * 棋盘
+ * 棋盘： 初始化棋盘, 埋雷
  */
 public class MineMap {
     private int rows;   //行
@@ -15,6 +15,7 @@ public class MineMap {
         //初始化
         for( int i=0;i<rows;i++){
             for(int j=0;j<board[i].length;j++){
+                //    status:  0b0000000   -> 0b0
                 board[i][j]=new Point(  i,j, 0b0      );
             }
         }
@@ -23,7 +24,6 @@ public class MineMap {
     }
 
     private Point[][] burnMine(Point[][] board) {
-        //TODO: 小张，请你于今日下等完成...
         // 循环埋mineCount个雷
         //随机生成下标.
         Random r=new Random();
@@ -43,6 +43,7 @@ public class MineMap {
                 //          0bxxxxxx1
                int temp=  board[x][y].getState() | 0b1;
                board[x][y].setState(     temp         );
+               //运算周围的八个点对应的雷数
                 // 上三个point 的前四位+1
                 if(  x-1>=0){
                     //先看上面的中间点    x-1  y
